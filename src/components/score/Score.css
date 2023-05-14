@@ -1,0 +1,27 @@
+.score {
+  background-color: #bbada0;
+  color: white;
+  padding: 8px 0;
+  width: 80px;
+  height: fit-content;
+  font-weight: bold;
+  border-radius: 3px;
+  text-align: center;
+}
+
+.score .label {
+  font-size: 13px;
+  color: #eee4da;
+  text-transform: uppercase;
+}
+
+.score .value {
+  font-size: 25px;
+  margin-top: 3px;
+}
+
+@media screen and (max-width: 520px) {
+  .score {
+    width: 60px;
+  }
+}

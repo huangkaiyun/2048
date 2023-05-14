@@ -1,24 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import { Score } from './components/score/Score';
+import { Game } from './components/game/Game';
 
 function App() {
+  const [score, setScore] = useState(0);
+  const [best, setBest] = useState(Number(localStorage.getItem('best')));
+
+  const changeScore = (num: number) => {
+    if (num === -1) {
+      setScore(0);
+      return;
+    }
+    const newScore = score + num;
+    setScore(newScore);
+    if (best < newScore) {
+      setBest(newScore);
+      localStorage.setItem('best', newScore.toString());
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <div className="header">
+        <h1 className="title">2048</h1>
+        <div className="score-container">
+          <Score label="score" value={score} />
+          <Score label="best" value={best} />
+        </div>
+      </div>
+      <Game onScoreChange={changeScore} />
     </div>
   );
 }

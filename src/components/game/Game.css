@@ -1,0 +1,125 @@
+.game-container {
+  background-color: #bbada0;
+  border-radius: 6px;
+  padding: 15px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  border: none;
+  padding: 0;
+}
+
+.grid {
+  width: calc((100% - (15px * 3)) / 4);
+  padding-top: calc((100% - (15px * 3)) / 4);
+  background-color: rgba(238, 228, 218, 0.35);
+  border-radius: 3px;
+}
+
+.number-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+}
+
+.number-container > .number {
+  position: absolute;
+  transition: 100ms ease-in-out;
+  transition-property: transform;
+  width: calc((100% - (15px * 5)) / 4);
+  height: calc((100% - (15px * 5)) / 4);
+  border-radius: 3px;
+  text-align: center;
+  font-weight: bold;
+  line-height: 105px;
+  color: #f9f6f2;
+  background-color: #3d3c34;
+}
+
+.number.no-2 {
+  background-color: #eee4da;
+  color: #776e65;
+  font-size: 55px;
+}
+.number.no-4 {
+  background-color: #eee1c9;
+  color: #776e65;
+  font-size: 55px;
+}
+.number.no-8 {
+  background-color: #f3b27a;
+  font-size: 55px;
+}
+.number.no-16 {
+  background-color: #f69664;
+  font-size: 55px;
+}
+.number.no-32 {
+  background-color: #f77c5f;
+  font-size: 55px;
+}
+.number.no-64 {
+  background-color: #f75f3b;
+  font-size: 55px;
+}
+.number.no-128 {
+  background-color: #edd073;
+  font-size: 45px;
+}
+.number.no-256 {
+  background-color: #edcc62;
+  font-size: 45px;
+}
+.number.no-512 {
+  background-color: #edc950;
+  font-size: 45px;
+}
+
+@media screen and (max-width: 520px) {
+  .game-container {
+    padding: 10px;
+  }
+  .grid-container {
+    gap: 10px;
+  }
+  .grid {
+    width: calc((100% - (10px * 3)) / 4);
+    padding-top: calc((100% - (10px * 3)) / 4);
+  }
+  .number-container {
+    padding: 10px;
+  }
+  .number-container > .number {
+    width: calc((100% - (10px * 5)) / 4);
+    height: calc((100% - (10px * 5)) / 4);
+    line-height: 55px;
+  }
+  .number.no-2,
+  .number.no-4,
+  .number.no-8,
+  .number.no-16,
+  .number.no-32,
+  .number.no-64 {
+    font-size: 35px;
+  }
+  .number.no-128,
+  .number.no-256,
+  .number.no-512 {
+    font-size: 25px;
+  }
+  .number.no-1024,
+  .number.no-2048,
+  .number.no-4096,
+  .number.no-8192 {
+    font-size: 15px;
+  }
+}
